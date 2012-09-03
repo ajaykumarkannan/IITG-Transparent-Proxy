@@ -1,16 +1,14 @@
 #!/bin/bash
 echo "This is the easy version of starting up the transparent proxy."
-echo "The backend needs to compiled. I've done that in the script itself."
-echo "In case make fails, you will need to compile libevent. I've included the tar for it. Extract it and use the readme file. "
-
-echo "You will need to give the sudo password when requested."
-
-sleep 1;
 
 if [ ! -f ./redsocks/redsocks ] 
 then
+	echo "The backend needs to compiled. This script will attempt that now."
+	echo "In case make fails, you will need to compile libevent. I've included the tar for it. Extract it and use the readme file. "
 	make -C ./redsocks/
 fi
+
+echo "You will need to give the sudo password when requested."
 
 # Comment this section out and use the arugements directly if you prefer that. I've given an example in the next commented section
 read -p "Enter the proxy address: " proxy
